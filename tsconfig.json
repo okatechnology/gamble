@@ -1,0 +1,10 @@
+{
+  "extends": "@okatechnology/eslint-config/tsconfig.node.json",
+  "include": ["**/*", ".eslintrc.js"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "typeRoots": [
+      "node_modules/@types",
+    ],
+  }
+}
