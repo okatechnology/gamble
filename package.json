@@ -4,7 +4,7 @@
   "description": "",
   "main": "bacarrat.js",
   "scripts": {
-    "main": "npx ts-node ./main.ts "
+    "main": "npx ts-node ./main.ts"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,10 @@
   "homepage": "https://github.com/okatechnology/gamble#readme",
   "devDependencies": {
     "@types/node": "^20.8.6",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@okatechnology/eslint-config": "^1.1.0"
+    "@okatechnology/eslint-config": "^1.2.0"
   }
 }
