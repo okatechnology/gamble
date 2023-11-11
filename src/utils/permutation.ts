@@ -1,11 +1,13 @@
-type Permutation = (n: number, r: number) => number;
+export const permutation = <T extends number | bigint>(n: T, r: T): T => {
+  let result = 1n;
 
-export const permutation: Permutation = (n, r) => {
-  let result = 1;
-
-  for (let i = 0; i < r; i++) {
-    result *= n - i;
+  for (let i = 0n; i < r; i++) {
+    result *= BigInt(n) - i;
   }
 
-  return result;
+  if (typeof n === 'number') {
+    return Number(result) as T;
+  }
+
+  return result as T;
 };
