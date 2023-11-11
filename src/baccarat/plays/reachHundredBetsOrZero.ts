@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { calculateBaccaratPayout } from 'src/baccarat/calculateBaccaratPayout';
+import { calculateBaccaratPayout } from 'src/baccarat/utils/calculateBaccaratPayout';
 
 const allResult: string[] = [];
 const MINIMUM_BET = 100;
