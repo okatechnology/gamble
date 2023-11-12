@@ -1,8 +1,7 @@
+import { DECKS, SUITES } from 'src/baccarat/baccaratGlobalConfig';
 import { BaccaratPickedCards } from 'src/baccarat/types/baccaratPickedCards';
 
 type PickSixCards = () => BaccaratPickedCards;
-
-const DECKS = 8;
 
 const cards = Array.from({ length: 13 }, (_, i) => {
   const cardNumber = i + 1;
@@ -11,7 +10,7 @@ const cards = Array.from({ length: 13 }, (_, i) => {
 }).flatMap((cardNumber) =>
   Array.from(
     {
-      length: 4 * DECKS, // 4 suits * decks
+      length: SUITES * DECKS, // 4 suits * decks
     },
     () => cardNumber,
   ),

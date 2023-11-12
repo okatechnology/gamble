@@ -1,12 +1,13 @@
+import {
+  SUITES,
+  DECKS,
+  ODDS_OF_PLAYER_WINNING,
+  ODDS_OF_BANKER_WINNING,
+  ODDS_OF_TIE,
+} from 'src/baccarat/baccaratGlobalConfig';
 import { BaccaratPickedCards } from 'src/baccarat/types/baccaratPickedCards';
 import { playBaccarat } from 'src/baccarat/utils/playBaccarat';
 import { permutation } from 'src/utils/permutation';
-
-const DECKS = 8;
-const SUITES = 4;
-const ODDS_OF_PLAYER_WINNING = 2;
-const ODDS_OF_BANKER_WINNING = 1.95;
-const ODDS_OF_TIE = 8;
 
 const results = Array.from<unknown, BaccaratPickedCards>({ length: 1000000 }, (_, i) => {
   const cards = i.toString().padStart(6, '0').split('');
