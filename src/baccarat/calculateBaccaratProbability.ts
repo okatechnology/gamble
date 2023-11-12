@@ -4,6 +4,9 @@ import { permutation } from 'src/utils/permutation';
 
 const DECKS = 8;
 const SUITES = 4;
+const ODDS_OF_PLAYER_WINNING = 2;
+const ODDS_OF_BANKER_WINNING = 1.95;
+const ODDS_OF_TIE = 8;
 
 const results = Array.from<unknown, BaccaratPickedCards>({ length: 1000000 }, (_, i) => {
   const cards = i.toString().padStart(6, '0').split('');
@@ -60,6 +63,14 @@ const probabilityOfTie = ties / (playerWins + bankerWins + ties);
 const probabilityOfPlayerWinningWithoutTies = playerWins / (playerWins + bankerWins);
 const probabilityOfBankerWinningWithoutTies = bankerWins / (playerWins + bankerWins);
 
+const expectedValueOfPlayerWinning =
+  probabilityOfPlayerWinning * ODDS_OF_PLAYER_WINNING + probabilityOfTie * 1;
+
+const expectedValueOfBankerWinning =
+  probabilityOfBankerWinning * ODDS_OF_BANKER_WINNING + probabilityOfTie * 1;
+
+const expectedValueOfTie = probabilityOfTie * ODDS_OF_TIE;
+
 console.log(
   `プレイヤーが勝利するカードの組み合わせは${playerWins}通り、
 バンカーが勝利するカードの組み合わせは${bankerWins}通り、
@@ -70,5 +81,11 @@ console.log(
 タイになる確率は${probabilityOfTie * 100}%である。
 
 タイを除いた場合、プレイヤーが勝利する確率は${probabilityOfPlayerWinningWithoutTies * 100}%、
-バンカーが勝利する確率は${probabilityOfBankerWinningWithoutTies * 100}%である。`,
+バンカーが勝利する確率は${probabilityOfBankerWinningWithoutTies * 100}%である。
+
+賭け金を1とした場合、
+プレイヤーが勝利する場合の賞金の期待値は${expectedValueOfPlayerWinning}、
+バンカーが勝利する場合の賞金の期待値は${expectedValueOfBankerWinning}、
+タイになる場合の賞金の期待値は${expectedValueOfTie}である。
+`,
 );
