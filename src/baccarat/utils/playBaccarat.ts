@@ -17,6 +17,7 @@ const calculateResult = ({
   }
 };
 
+/** 引数として与えられた6つのカードからバカラをプレイした結果を返す */
 export const playBaccarat = ({
   bankerFirstCard,
   bankerSecondCard,

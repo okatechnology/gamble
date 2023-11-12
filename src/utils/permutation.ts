@@ -1,3 +1,4 @@
+/** 順序を考慮した組み合わせの数を求める */
 export const permutation = <T extends number | bigint>(n: T, r: T): T => {
   let result = 1n;
 
