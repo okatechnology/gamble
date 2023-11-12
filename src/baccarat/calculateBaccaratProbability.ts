@@ -9,6 +9,7 @@ import { BaccaratPickedCards } from 'src/baccarat/types/baccaratPickedCards';
 import { playBaccarat } from 'src/baccarat/utils/playBaccarat';
 import { permutation } from 'src/utils/permutation';
 
+// カードの配り方を全てリストアップする
 const allPickedCards = Array.from<unknown, BaccaratPickedCards>({ length: 1000000 }, (_, i) => {
   const cards = i.toString().padStart(6, '0').split('');
 
@@ -29,6 +30,7 @@ let bankerWins = 0;
 let ties = 0;
 
 allPickedCards.forEach((pickedCards) => {
+  // 対象の配られ方にどの点数が何枚配られたかを数える
   const pickedCardsNumbersRecord = Object.values<number>(pickedCards).reduce(
     (previousList, currentCard) => {
       return {
@@ -39,6 +41,7 @@ allPickedCards.forEach((pickedCards) => {
     {} as Record<number, number>,
   );
 
+  // 対象の配られ方にどの点数が何枚配られたかから、その配られ方の組み合わせの数を計算する
   const combinationsOfPickedCards = Object.entries(pickedCardsNumbersRecord).reduce(
     (previousNumber, [cardNumber, count]) => {
       const numberOfTypesOfTheTargetNumbersCards = cardNumber === '0' ? 4 : 1;
@@ -52,6 +55,7 @@ allPickedCards.forEach((pickedCards) => {
 
   const winner = playBaccarat(pickedCards);
 
+  // 対象の配られ方の組み合わせの数を、勝者に応じて加算する
   if (winner === 'P') {
     playerWins += combinationsOfPickedCards;
   } else if (winner === 'B') {
