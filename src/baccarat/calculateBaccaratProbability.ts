@@ -84,16 +84,16 @@ console.log(
 バンカーが勝利するカードの組み合わせは${bankerWins}通り、
 タイになるカードの組み合わせは${ties}通りある。
 
-プレイヤーが勝利する確率は${probabilityOfPlayerWinning * 100}%、
-バンカーが勝利する確率は${probabilityOfBankerWinning * 100}%、
-タイになる確率は${probabilityOfTie * 100}%である。
+プレイヤーが勝利する確率は${probabilityOfPlayerWinning * 100}...%、
+バンカーが勝利する確率は${probabilityOfBankerWinning * 100}...%、
+タイになる確率は${probabilityOfTie * 100}...%である。
 
-タイを除いた場合、プレイヤーが勝利する確率は${probabilityOfPlayerWinningWithoutTies * 100}%、
-バンカーが勝利する確率は${probabilityOfBankerWinningWithoutTies * 100}%である。
+タイを除いた場合、プレイヤーが勝利する確率は${probabilityOfPlayerWinningWithoutTies * 100}...%、
+バンカーが勝利する確率は${probabilityOfBankerWinningWithoutTies * 100}...%である。
 
 賭け金を1とした場合、
-プレイヤーが勝利する場合の賞金の期待値は${expectedValueOfPlayerWinning}、
-バンカーが勝利する場合の賞金の期待値は${expectedValueOfBankerWinning}、
-タイになる場合の賞金の期待値は${expectedValueOfTie}である。
+プレイヤーが勝利する場合の賞金の期待値は${expectedValueOfPlayerWinning}...、
+バンカーが勝利する場合の賞金の期待値は${expectedValueOfBankerWinning}...、
+タイになる場合の賞金の期待値は${expectedValueOfTie}...である。
 `,
 );
