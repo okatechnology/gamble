@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { calculateBaccaratPayout } from 'src/baccarat/utils/calculateBaccaratPayout';
 
-const allResult: string[] = [];
+const allResults: string[] = [];
 const MINIMUM_BET = 100;
 const FIRST_BANKROLL = 10000;
 
@@ -28,17 +28,21 @@ export const playReachHundredBetsOrZero = () => {
 
     // 重くなるので全員分はデータを出力しない
     if (i < 20) {
-      allResult.push(personalResult.join(','));
+      allResults.push(personalResult.join(','));
     }
   }
 
-  const fileName = path.basename(__filename);
-  const resultsPath = path.resolve('results', fileName);
+  const resultsPath = path.resolve('results');
 
   if (!fs.existsSync(resultsPath)) {
     fs.mkdirSync(resultsPath, { recursive: true });
   }
 
-  fs.writeFileSync(path.resolve(resultsPath, 'baccarat.csv'), allResult.join('\n'));
-  fs.writeFileSync(path.resolve(resultsPath, 'baccaratResult.txt'), numberOfWin.toString());
+  const fileName = path.basename(__filename).split('.')[0] ?? '';
+  fs.writeFileSync(path.resolve(resultsPath, `${fileName}.csv`), allResults.join('\n'));
+
+  fs.writeFileSync(
+    path.resolve(resultsPath, `${fileName}Result.txt`),
+    `100人中${numberOfWin}人が勝利した。`,
+  );
 };

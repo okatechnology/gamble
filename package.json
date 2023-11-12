@@ -4,7 +4,7 @@
   "description": "",
   "main": "bacarrat.js",
   "scripts": {
-    "main": "npx ts-node -r tsconfig-paths/register ./main.ts",
+    "play:baccarat": "npx ts-node -r tsconfig-paths/register ./src/baccarat/playBaccarat.ts",
     "calc-baccarat-probability": "npx ts-node -r tsconfig-paths/register ./src/baccarat/calculateBaccaratProbability.ts",
     "test": "jest"
   },
