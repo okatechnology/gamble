@@ -1,10 +1,11 @@
+import {
+  ODDS_OF_BANKER_WINNING,
+  ODDS_OF_PLAYER_WINNING,
+  ODDS_OF_TIE,
+} from 'src/baccarat/constants/baccaratGlobalConfig';
 import { BaccaratResult } from 'src/baccarat/types/baccaratResult';
 import { pickSixCards } from 'src/baccarat/utils/pickSixCards';
 import { playBaccarat } from 'src/baccarat/utils/playBaccarat';
-
-const BANKER_ODDS = 1.95;
-const PLAYER_ODDS = 2;
-const TIE_ODDS = 8;
 
 export const calculateBaccaratPayout = ({
   betTarget,
@@ -17,11 +18,11 @@ export const calculateBaccaratPayout = ({
   const result = playBaccarat(sixCards);
 
   if (result === betTarget && result === 'B') {
-    return betAmount * BANKER_ODDS;
+    return betAmount * ODDS_OF_BANKER_WINNING;
   } else if (result === betTarget && result === 'P') {
-    return betAmount * PLAYER_ODDS;
+    return betAmount * ODDS_OF_PLAYER_WINNING;
   } else if (result === betTarget && result === 'T') {
-    return betAmount * TIE_ODDS;
+    return betAmount * ODDS_OF_TIE;
   } else if (result === 'T') {
     return betAmount;
   } else {

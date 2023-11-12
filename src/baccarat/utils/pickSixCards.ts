@@ -6,11 +6,11 @@ type PickSixCards = () => BaccaratPickedCards;
 const cards = Array.from({ length: 13 }, (_, i) => {
   const cardNumber = i + 1;
 
-  return cardNumber >= 10 ? 0 : cardNumber; // 0 is for 10, J, Q, K
+  return cardNumber >= 10 ? 0 : cardNumber;
 }).flatMap((cardNumber) =>
   Array.from(
     {
-      length: SUITES * DECKS, // 4 suits * decks
+      length: SUITES * DECKS,
     },
     () => cardNumber,
   ),

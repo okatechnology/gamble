@@ -26,7 +26,7 @@ export const playReachHundredBetsOrZero = () => {
       numberOfWin++;
     }
 
-    // 重くなるので全員分はデータを出力しない
+    // 20人分のみCSVファイルに出力する
     if (i < 20) {
       allResults.push(personalResult.join(','));
     }
