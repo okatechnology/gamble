@@ -9,7 +9,7 @@ import { BaccaratPickedCards } from 'src/baccarat/types/baccaratPickedCards';
 import { playBaccarat } from 'src/baccarat/utils/playBaccarat';
 import { permutation } from 'src/utils/permutation';
 
-const results = Array.from<unknown, BaccaratPickedCards>({ length: 1000000 }, (_, i) => {
+const allPickedCards = Array.from<unknown, BaccaratPickedCards>({ length: 1000000 }, (_, i) => {
   const cards = i.toString().padStart(6, '0').split('');
 
   return {
@@ -28,15 +28,18 @@ let bankerWins = 0;
 
 let ties = 0;
 
-results.forEach((result) => {
-  const resultsNumbersRecord = Object.values<number>(result).reduce((previousList, currentCard) => {
-    return {
-      ...previousList,
-      [currentCard]: (previousList[currentCard] ?? 0) + 1,
-    };
-  }, {} as Record<number, number>);
+allPickedCards.forEach((pickedCards) => {
+  const pickedCardsNumbersRecord = Object.values<number>(pickedCards).reduce(
+    (previousList, currentCard) => {
+      return {
+        ...previousList,
+        [currentCard]: (previousList[currentCard] ?? 0) + 1,
+      };
+    },
+    {} as Record<number, number>,
+  );
 
-  const combinationsOfTheResult = Object.entries(resultsNumbersRecord).reduce(
+  const combinationsOfPickedCards = Object.entries(pickedCardsNumbersRecord).reduce(
     (previousNumber, [cardNumber, count]) => {
       const numberOfTypesOfTheTargetNumbersCards = cardNumber === '0' ? 4 : 1;
 
@@ -47,14 +50,14 @@ results.forEach((result) => {
     1,
   );
 
-  const winner = playBaccarat(result);
+  const winner = playBaccarat(pickedCards);
 
   if (winner === 'P') {
-    playerWins += combinationsOfTheResult;
+    playerWins += combinationsOfPickedCards;
   } else if (winner === 'B') {
-    bankerWins += combinationsOfTheResult;
+    bankerWins += combinationsOfPickedCards;
   } else {
-    ties += combinationsOfTheResult;
+    ties += combinationsOfPickedCards;
   }
 });
 
