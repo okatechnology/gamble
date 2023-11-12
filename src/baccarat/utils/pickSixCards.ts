@@ -1,4 +1,4 @@
-import { DECKS, SUITES } from 'src/baccarat/baccaratGlobalConfig';
+import { DECKS, SUITES } from 'src/baccarat/constants/baccaratGlobalConfig';
 import { BaccaratPickedCards } from 'src/baccarat/types/baccaratPickedCards';
 
 type PickSixCards = () => BaccaratPickedCards;

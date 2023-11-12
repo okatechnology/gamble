@@ -4,7 +4,7 @@ import {
   ODDS_OF_PLAYER_WINNING,
   ODDS_OF_BANKER_WINNING,
   ODDS_OF_TIE,
-} from 'src/baccarat/baccaratGlobalConfig';
+} from 'src/baccarat/constants/baccaratGlobalConfig';
 import { BaccaratPickedCards } from 'src/baccarat/types/baccaratPickedCards';
 import { playBaccarat } from 'src/baccarat/utils/playBaccarat';
 import { permutation } from 'src/utils/permutation';
